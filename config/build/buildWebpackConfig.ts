@@ -3,6 +3,7 @@ import {buildPlugins} from "./buildPlugins";
 import {buildLoaders} from "./buildLoaders";
 import {buildResolvers} from "./buildResolvers";
 import {buildOptions} from "./types/types";
+import {buildDevServer} from "./buildDevServer";
 
 export function buildWebpackConfig(options: buildOptions): webpack.Configuration {
     const { mode, paths } = options;
@@ -28,6 +29,9 @@ export function buildWebpackConfig(options: buildOptions): webpack.Configuration
             rules: buildLoaders()
         },
         // настройка, которая указывает, для каких файлов не нужно указывать расширение при импорте
-        resolve: buildResolvers()
+        resolve: buildResolvers(),
+        // для отслеживания бэктрека ошибок
+        devtool: 'inline-source-map',
+        devServer: buildDevServer(options)
     }
 }

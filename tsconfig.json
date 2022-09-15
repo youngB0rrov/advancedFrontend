@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "noImplicitAny": true,
+    // тип используемой модульной сборки
+    "module": "es6",
+    // версия js, в которую будет компилировать код
+    "target": "es5",
+    "jsx": "react",
+    "allowJs": true,
+    "moduleResolution": "node",
+    // esModuleInterop позволяет работать с пакетам, которые используют
+    // common js как с обычными пакетами с помощью import (require(), module.exports) = common js
+    "esModuleInterop": true,
+    // если какая либо библиотека не имеет export default
+    // то лоадеры babel-loader или ts-loader будут создавать такие импорты
+    "allowSyntheticDefaultImports": true
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
+}

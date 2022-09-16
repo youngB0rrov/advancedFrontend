@@ -15,3 +15,9 @@ export interface buildOptions {
     isDev: boolean;
     port: number;
 }
+
+// интерфейс для переменных окружения
+export interface envOptions {
+    mode: buildMode;
+    port: number;
+}

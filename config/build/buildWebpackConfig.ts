@@ -6,7 +6,7 @@ import {buildOptions} from "./types/types";
 import {buildDevServer} from "./buildDevServer";
 
 export function buildWebpackConfig(options: buildOptions): webpack.Configuration {
-    const { mode, paths } = options;
+    const { mode, paths, isDev } = options;
     return {
         // можно задавать динамически
         mode: mode,
@@ -31,7 +31,7 @@ export function buildWebpackConfig(options: buildOptions): webpack.Configuration
         // настройка, которая указывает, для каких файлов не нужно указывать расширение при импорте
         resolve: buildResolvers(),
         // для отслеживания бэктрека ошибок
-        devtool: 'inline-source-map',
-        devServer: buildDevServer(options)
+        devtool: isDev ? 'inline-source-map' : undefined,
+        devServer: isDev ? buildDevServer(options) : undefined
     }
 }

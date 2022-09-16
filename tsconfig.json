@@ -6,7 +6,8 @@
     "module": "es6",
     // версия js, в которую будет компилировать код
     "target": "es5",
-    "jsx": "react",
+    // позволяет не импортировать react с 17 версии
+    "jsx": "react-jsx",
     "allowJs": true,
     "moduleResolution": "node",
     // esModuleInterop позволяет работать с пакетам, которые используют

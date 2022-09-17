@@ -1,1 +1,0 @@
-(()=>{"use strict";console.log("Testing"),document.body.innerHTML='<div style="background-color: red">Hello from index.tsx</div>'})();

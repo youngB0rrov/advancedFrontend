@@ -26,7 +26,7 @@ export function buildWebpackConfig(options: buildOptions): webpack.Configuration
         module: {
             // настройка для конфигурации лоадеров
             // настройки для конфигурации обработки файлов, которые выходят за рамки javaScript
-            rules: buildLoaders()
+            rules: buildLoaders(options)
         },
         // настройка, которая указывает, для каких файлов не нужно указывать расширение при импорте
         resolve: buildResolvers(),

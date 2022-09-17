@@ -1,8 +1,10 @@
 import {Counter} from "./components/counter/Counter";
+import "./index.scss";
 
 export const App = () => {
     return (
-        <div>
+        <div
+            className={'app'}>
             <Counter />
         </div>
     )

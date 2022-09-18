@@ -1,15 +1,19 @@
-import {Counter} from "./components/counter/Counter";
-import "./index.scss";
+import {useContext, useState} from "react";
+import "./styles/index.scss";
 import {Routes, Route} from "react-router-dom";
 import {Link} from "react-router-dom";
 import {AboutPageAsync} from "./pages/about-page/AboutPage.async";
 import {MainPageAsync} from "./pages/main-page/MainPage.async";
 import {Suspense} from "react";
+import {ThemeContext} from "./theme/ThemeContext";
+import {useTheme} from "./theme/useTheme";
 
 export const App = () => {
+    const {theme, toggleTheme} = useTheme();
+
     return (
         <div
-            className={'app'}
+            className={`app ${theme}`}
         >
             <Link to={'/'}>
                 Главная
@@ -17,6 +21,13 @@ export const App = () => {
             <Link to={'/about'}>
                 О нас
             </Link>
+
+            <button
+                onClick={toggleTheme}
+            >
+                Сменить тему
+            </button>
+
             <Suspense fallback={<div>Loading...</div>}>
                 <Routes>
                     <Route

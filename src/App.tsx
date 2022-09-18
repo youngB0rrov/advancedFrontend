@@ -14,7 +14,7 @@ export const App = () => {
 
     return (
         <div
-            className={classNames('app', {hovered: true, selected: false}, [theme])}
+            className={classNames('app', {hovered: true, selected: true }, [theme])}
         >
             <Link to={'/'}>
                 Главная

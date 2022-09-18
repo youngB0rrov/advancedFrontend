@@ -7,13 +7,14 @@ import {MainPageAsync} from "./pages/main-page/MainPage.async";
 import {Suspense} from "react";
 import {ThemeContext} from "./theme/ThemeContext";
 import {useTheme} from "./theme/useTheme";
+import {classNames} from "./helpers/class-names/classNames";
 
 export const App = () => {
     const {theme, toggleTheme} = useTheme();
 
     return (
         <div
-            className={`app ${theme}`}
+            className={classNames('app', {hovered: true, selected: false}, [theme])}
         >
             <Link to={'/'}>
                 Главная

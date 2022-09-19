@@ -1,13 +1,11 @@
-import {useContext, useState} from "react";
 import "./styles/index.scss";
 import {Routes, Route} from "react-router-dom";
 import {Link} from "react-router-dom";
-import {AboutPageAsync} from "./pages/about-page/AboutPage.async";
-import {MainPageAsync} from "./pages/main-page/MainPage.async";
 import {Suspense} from "react";
-import {ThemeContext} from "./theme/ThemeContext";
-import {useTheme} from "./theme/useTheme";
-import {classNames} from "./helpers/class-names/classNames";
+import {useTheme} from "app/providers/ThemeProvider";
+import {classNames} from "shared/lib/class-names/classNames";
+import { AboutPage } from "pages/about-page";
+import { MainPage } from "pages/main-page";
 
 export const App = () => {
     const {theme, toggleTheme} = useTheme();
@@ -33,11 +31,11 @@ export const App = () => {
                 <Routes>
                     <Route
                         path={'/about'}
-                        element={<AboutPageAsync/>}
+                        element={<AboutPage />}
                     />
                     <Route
                         path={'/'}
-                        element={<MainPageAsync/>}
+                        element={<MainPage />}
                     />
                 </Routes>
             </Suspense>

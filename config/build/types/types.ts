@@ -6,6 +6,7 @@ export interface buildPaths {
     entry: string;
     build: string;
     html: string;
+    src: string;
 }
 
 // интерфейс настроек сборки

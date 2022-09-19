@@ -4,8 +4,8 @@ type Modes = Record<string, string | boolean>;
 
 export const classNames = (
     cls: string,
-    modes: Modes,
-    additions: string[]
+    modes?: Modes,
+    additions?: string[]
 ): string => {
 
     const usedModes = Object.entries(modes)

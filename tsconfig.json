@@ -3,7 +3,7 @@
     "outDir": "./dist/",
     "noImplicitAny": true,
     // тип используемой модульной сборки
-    "module": "es2020",
+    "module": "esNext",
     // версия js, в которую будет компилировать код
     "target": "es5",
     // позволяет не импортировать react с 17 версии
@@ -15,7 +15,13 @@
     "esModuleInterop": true,
     // если какая либо библиотека не имеет export default
     // то лоадеры babel-loader или ts-loader будут создавать такие импорты
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    // для абсолютных импортов
+    "baseUrl": ".",
+    // указывает, что все абсолютные импорты производятся из папки src
+    "paths": {
+      "*": ["./src/*"]
+    }
   },
   "ts-node": {
     "compilerOptions": {

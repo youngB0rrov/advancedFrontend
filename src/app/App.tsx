@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import {useTheme} from "app/providers/ThemeProvider";
 import {classNames} from "shared/lib/class-names/classNames";
 import {RouterProvider} from "app/providers/RouterProvider";
+import {Navbar} from "widgets/navbar";
 
 export const App = () => {
     const {theme, toggleTheme} = useTheme();
@@ -11,19 +12,13 @@ export const App = () => {
         <div
             className={classNames('app', {hovered: true, selected: false}, [theme])}
         >
-            <Link to={'/'}>
-                Главная
-            </Link>
-            <Link to={'/about'}>
-                О нас
-            </Link>
-
+            <Navbar />
             <button
                 onClick={toggleTheme}
             >
                 Сменить тему
             </button>
-            <RouterProvider />
+            <RouterProvider/>
         </div>
     )
 }

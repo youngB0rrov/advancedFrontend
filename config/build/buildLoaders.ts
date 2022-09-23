@@ -16,6 +16,20 @@ export const buildLoaders = (options: buildOptions): webpack.RuleSetRule[] => {
         exclude: /node_modules/,
     }
 
+    const svgLoader = {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+    }
+
+    const fileLoader = {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+            {
+                loader: 'file-loader',
+            },
+        ],
+    }
+
     const cssLoader = {
         test: /\.s[ac]ss$/i,
         use: [
@@ -46,6 +60,8 @@ export const buildLoaders = (options: buildOptions): webpack.RuleSetRule[] => {
     // порядок лоадеров важен для вебпака!
     return [
         typescriptLoader,
-        cssLoader
+        cssLoader,
+        svgLoader,
+        fileLoader
     ]
 }

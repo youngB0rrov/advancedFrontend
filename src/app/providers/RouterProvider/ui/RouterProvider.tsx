@@ -9,7 +9,11 @@ export const RouterProvider = () => {
                 {Object.values(routeConfig).map(({path, element}) => (
                     <Route
                         path={path}
-                        element={element}
+                        element={
+                            <div className={'main-page-wrapper'}>
+                                {element}
+                            </div>
+                        }
                     />
                     )
                 )}

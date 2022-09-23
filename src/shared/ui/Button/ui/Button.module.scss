@@ -1,0 +1,21 @@
+.Button {
+  cursor: pointer;
+  height: var(--button-height);
+}
+
+.clear {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+
+.primary {
+  background-color: var(--button-main-bg);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 10px 15px;
+  border: 1px solid var(--button-border-color);
+  border-radius: 5px;
+}

@@ -4,6 +4,7 @@ import {classNames} from "shared/lib/class-names/classNames";
 import {RouterProvider} from "app/providers/RouterProvider";
 import {Navbar} from "widgets/navbar";
 import {Sidebar} from "widgets/Sidebar";
+import { Suspense } from "react";
 
 export const App = () => {
     const {theme} = useTheme();
@@ -12,11 +13,13 @@ export const App = () => {
         <div
             className={classNames('app', {hovered: true, selected: false}, [theme])}
         >
-            <Navbar />
-            <div className="content-page">
-                <Sidebar />
-                <RouterProvider/>
-            </div>
+            <Suspense fallback="">
+                <Navbar/>
+                <div className="content-page">
+                    <Sidebar/>
+                    <RouterProvider/>
+                </div>
+            </Suspense>
         </div>
     )
 }

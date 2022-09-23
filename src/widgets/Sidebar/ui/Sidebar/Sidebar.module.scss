@@ -4,6 +4,7 @@
   background-color: var(--secondary-bg-color);
   transition: .3s width ease-in-out;
   position: relative;
+  padding: 10px;
 }
 
 .collapsed {
@@ -14,4 +15,15 @@
   position: absolute;
   left: 10px;
   bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.collapsedSwitchers {
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+.locale {
+  margin-left: 10px;
 }

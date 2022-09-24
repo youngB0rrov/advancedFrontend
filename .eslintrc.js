@@ -15,6 +15,7 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: [
     'react',
+    'i18next',
   ],
   rules: {
     'react/react-in-jsx-scope': 'off',
@@ -28,6 +29,10 @@ module.exports = {
     'react/function-component-definition': 'off',
     'no-underscore-dangle': 'off',
     'no-shadow': 'off',
+    'i18next/no-literal-string': [
+      'error',
+      { markupOnly: true, onlyAttribute: [''] },
+    ],
   },
   globals: {
     __IS_DEV__: true,

@@ -1,5 +1,5 @@
-import {RouterProvider} from "./ui/RouterProvider";
+import { RouterProvider } from './ui/RouterProvider';
 
 export {
-    RouterProvider
+  RouterProvider,
 };

@@ -1,7 +1,8 @@
-import {Link, LinkProps} from "react-router-dom";
-import {classNames} from "shared/lib/class-names/classNames";
-import classes from "./AppLink.module.scss";
-import {FunctionComponent} from "react";
+/* eslint-disable react/jsx-props-no-spreading */
+import { Link, LinkProps } from 'react-router-dom';
+import { classNames } from 'shared/lib/class-names/classNames';
+import { FunctionComponent } from 'react';
+import classes from './AppLink.module.scss';
 
 export enum AppLinkThemes {
     PRIMARY = 'primary',
@@ -14,15 +15,17 @@ interface AppLinkProps extends LinkProps {
 }
 
 export const AppLink: FunctionComponent<AppLinkProps> = (props) => {
-    const { to, children, className, theme, ...otherProps } = props;
+  const {
+    to, children, className, theme, ...otherProps
+  } = props;
 
-    return (
-        <Link
-            to={to}
-            className={classNames(classes.AppLink, {}, [className, classes[theme]])}
-            {...otherProps}
-        >
-            {children}
-        </Link>
-    )
-}
+  return (
+    <Link
+      to={to}
+      className={classNames(classes.AppLink, {}, [className, classes[theme]])}
+      {...otherProps}
+    >
+      {children}
+    </Link>
+  );
+};

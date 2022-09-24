@@ -1,13 +1,13 @@
-import {useState} from "react";
+import { useState } from 'react';
 
 export const useSidebar = () => {
-    const [isCollapsed, setIsCollapsed] = useState<boolean>(false);
-    const toggleSidebar = () => {
-        setIsCollapsed(prev => !prev);
-    }
+  const [isCollapsed, setIsCollapsed] = useState<boolean>(false);
+  const toggleSidebar = () => {
+    setIsCollapsed((prev) => !prev);
+  };
 
-    return {
-        isCollapsed,
-        toggleSidebar
-    }
-}
+  return {
+    isCollapsed,
+    toggleSidebar,
+  };
+};

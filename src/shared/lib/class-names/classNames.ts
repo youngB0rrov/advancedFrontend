@@ -3,19 +3,18 @@
 type Modes = Record<string, string | boolean>;
 
 export const classNames = (
-    cls: string,
-    modes?: Modes,
-    additions?: string[]
+  cls: string,
+  modes?: Modes,
+  additions?: string[],
 ): string => {
+  const usedModes = Object.entries(modes)
+    .filter(([_, boolValue]) => Boolean(boolValue))
+    .map(([className, _]) => className);
 
-    const usedModes = Object.entries(modes)
-        .filter(([className, boolValue]) => Boolean(boolValue))
-        .map(([className, boolValue]) => className);
-
-    return [
-        cls,
-        ...usedModes,
-        ...additions
-    ]
-        .join(' ')
-}
+  return [
+    cls,
+    ...usedModes,
+    ...additions,
+  ]
+    .join(' ');
+};

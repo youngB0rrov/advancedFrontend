@@ -22,7 +22,7 @@ export const ThemeSwitcher: FunctionComponent<ThemeSwitcherProps> = (props) => {
   return (
     <Button
       onClick={toggleTheme}
-      className={classNames(classes.switcher, {}, [className])}
+      className={classNames('', {}, [className])}
       theme={ButtonThemes.PRIMARY}
     >
       <span

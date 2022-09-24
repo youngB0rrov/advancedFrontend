@@ -2,13 +2,11 @@
   cursor: pointer;
   height: var(--button-height);
 }
-
 .clear {
   padding: 5px;
   border: none;
   outline: none;
 }
-
 .primary {
   background-color: var(--button-main-bg);
   display: flex;

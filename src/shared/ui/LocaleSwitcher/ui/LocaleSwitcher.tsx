@@ -2,7 +2,6 @@ import { FunctionComponent } from 'react';
 import { classNames } from 'shared/lib/class-names/classNames';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonThemes } from 'shared/ui/Button/ui/Button';
-import classes from './LocaleSwitcher.module.scss';
 
 interface LocaleSwitcherProps {
     className?: string;
@@ -18,7 +17,7 @@ export const LocaleSwitcher: FunctionComponent<LocaleSwitcherProps> = (props) =>
 
   return (
     <Button
-      className={classNames(classes.LocaleSwitcher, {}, [className])}
+      className={classNames('', {}, [className])}
       onClick={toggle}
       theme={ButtonThemes.CLEAR}
     >

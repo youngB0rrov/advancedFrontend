@@ -2,15 +2,13 @@
   height: calc(100vh - var(--navbar-height));
   width: var(--sidebar-width);
   background-color: var(--secondary-bg-color);
-  transition: .3s width ease-in-out;
+  transition: 0.3s width ease-in-out;
   position: relative;
   padding: 10px;
 }
-
 .collapsed {
   width: var(--sidebar-width-collapsed);
 }
-
 .switchers {
   position: absolute;
   left: 10px;
@@ -18,12 +16,10 @@
   display: flex;
   align-items: center;
 }
-
 .collapsedSwitchers {
   flex-direction: column-reverse;
   align-items: center;
 }
-
 .locale {
   margin-left: 10px;
 }

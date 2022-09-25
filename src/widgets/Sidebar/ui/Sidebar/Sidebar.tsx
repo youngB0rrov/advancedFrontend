@@ -32,7 +32,7 @@ export const Sidebar: FunctionComponent<SidebarProps> = (props) => {
           className={classes.switcher}
         />
         <LocaleSwitcher
-          className={classes.locale}
+          className={classNames(classes.locale, { [classes.collapsedLocale]: isCollapsed }, [])}
         />
       </div>
     </div>

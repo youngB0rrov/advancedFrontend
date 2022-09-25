@@ -30,6 +30,17 @@ export const buildLoaders = (options: buildOptions): webpack.RuleSetRule[] => {
     ],
   };
 
+  const babelLoader = {
+    test: /\.(js|jsx|tsx)$/,
+    exclude: /(node_modules|bower_components)/,
+    use: {
+      loader: 'babel-loader',
+      options: {
+        presets: ['@babel/preset-env'],
+      },
+    },
+  };
+
   const cssLoader = {
     test: /\.s[ac]ss$/i,
     use: [
@@ -55,6 +66,7 @@ export const buildLoaders = (options: buildOptions): webpack.RuleSetRule[] => {
 
   // порядок лоадеров важен для вебпака!
   return [
+    babelLoader,
     typescriptLoader,
     cssLoader,
     svgLoader,

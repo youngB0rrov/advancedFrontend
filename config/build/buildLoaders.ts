@@ -1,6 +1,8 @@
 import webpack from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { buildOptions } from './types/types';
+import { styleLoader } from './loaders/styleLoader';
+import { buildSVGLoader } from './loaders/buildSVGLoader';
 
 export const buildLoaders = (options: buildOptions): webpack.RuleSetRule[] => {
   // webpack.RuleSetRule - тип для правила в вебпака
@@ -16,10 +18,7 @@ export const buildLoaders = (options: buildOptions): webpack.RuleSetRule[] => {
     exclude: /node_modules/,
   };
 
-  const svgLoader = {
-    test: /\.svg$/,
-    use: ['@svgr/webpack'],
-  };
+  const svgLoader = buildSVGLoader();
 
   const fileLoader = {
     test: /\.(png|jpe?g|gif)$/i,
@@ -41,28 +40,7 @@ export const buildLoaders = (options: buildOptions): webpack.RuleSetRule[] => {
     },
   };
 
-  const cssLoader = {
-    test: /\.s[ac]ss$/i,
-    use: [
-      // для создания отдельного css-файла в сборке
-      options.isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-      // Translates CSS into CommonJS
-      {
-        loader: 'css-loader',
-        options: {
-          modules: {
-            // делает уникальные хешовые классы только для модульных scss-файлов
-            auto: (path: string) => Boolean(path.includes('.module.')),
-            localIdentName: options.isDev
-              ? '[path][name]__[local]--[hash:base64:5]' // определяет название классов вида .src-components-counter-Counter-module__number--_yD6w
-              : '[hash:base64:8]', // генерирует хеш для класса
-          },
-        },
-      },
-      // Compiles Sass to CSS
-      'sass-loader',
-    ],
-  };
+  const cssLoader = styleLoader(options.isDev);
 
   // порядок лоадеров важен для вебпака!
   return [

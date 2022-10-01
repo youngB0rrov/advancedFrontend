@@ -31,7 +31,7 @@ class ErrorBoundary extends React.Component<ErrorPageProps, ErrorPageState> {
       return <Suspense fallback=""><PageError /></Suspense>;
     }
 
-    return children;
+    return <div>{children}</div>;
   }
 }
 

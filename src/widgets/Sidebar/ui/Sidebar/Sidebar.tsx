@@ -8,7 +8,7 @@ import { useSidebar } from '../../lib/Sidebar/useSidebar';
 import classes from './Sidebar.module.scss';
 
 interface SidebarProps {
-    className?: string;
+  className?: string;
 }
 
 export const Sidebar: FunctionComponent<SidebarProps> = (props) => {
@@ -17,16 +17,26 @@ export const Sidebar: FunctionComponent<SidebarProps> = (props) => {
   const { isCollapsed, toggleSidebar } = useSidebar();
 
   return (
-    <div className={classNames(classes.Sidebar, { [classes.collapsed]: isCollapsed }, [className])}>
+    <div
+      className={
+        classNames(
+          classes.Sidebar,
+          { [classes.collapsed]: isCollapsed },
+          [className],
+        )
+      }
+      data-testid="sidebar"
+    >
       <Button
         onClick={toggleSidebar}
         theme={ButtonThemes.PRIMARY}
+        data-testid="toggle-handler"
       >
         {t('Свернуть')}
       </Button>
       <div className={
-          classNames(classes.switchers, { [classes.collapsedSwitchers]: isCollapsed }, [])
-}
+        classNames(classes.switchers, { [classes.collapsedSwitchers]: isCollapsed }, [])
+      }
       >
         <ThemeSwitcher
           className={classes.switcher}

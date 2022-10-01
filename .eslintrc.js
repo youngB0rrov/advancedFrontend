@@ -8,7 +8,14 @@ module.exports = {
     'plugin:react/recommended',
     'airbnb',
   ],
-  overrides: [],
+  overrides: [
+    {
+      files: ['**/src/**/*.test.{ts,tsx}'],
+      rules: {
+        'i18next/no-literal-string': 'off',
+      },
+    },
+  ],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
@@ -32,7 +39,7 @@ module.exports = {
     'no-shadow': 'off',
     'i18next/no-literal-string': [
       'error',
-      { markupOnly: true, onlyAttribute: [''] },
+      { markupOnly: true, onlyAttribute: [''], ignoreAttribute: ['data-testid', 'to'] },
     ],
     'max-len': ['error', {
       ignoreComments: true,

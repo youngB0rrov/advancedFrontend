@@ -24,8 +24,8 @@ jobs:
       - name: Building production bundle
         run: npm run build:production
       - name: Linting TypeScript
-        run: npm lint:ts
+        run: npm run lint:ts
       - name: Linting scss
-        run: npm lint:scss
+        run: npm run lint:scss
       - name: Testing UI
         run: npm run test

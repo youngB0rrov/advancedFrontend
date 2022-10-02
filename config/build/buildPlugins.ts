@@ -6,7 +6,7 @@ import { buildOptions } from './types/types';
 
 export function buildPlugins({ paths, isDev }: buildOptions): webpack.WebpackPluginInstance[] {
   // webpack.WebpackPluginInstance - специальный тип для плагина вебпака
-  return [
+  const plugins = [
     new HtmlWebpackPlugin({
       template: paths.html,
     }),
@@ -21,9 +21,12 @@ export function buildPlugins({ paths, isDev }: buildOptions): webpack.WebpackPlu
       // плагин для объявления глобальных перменных в проекте
       __IS_DEV__: JSON.stringify(isDev),
     }),
-    new webpack.HotModuleReplacementPlugin(),
-    new BundleAnalyzerPlugin({
-      openAnalyzer: false,
-    }),
   ];
+  if (isDev) {
+    plugins.push(new webpack.HotModuleReplacementPlugin());
+    plugins.push(new BundleAnalyzerPlugin({
+      openAnalyzer: false,
+    }));
+  }
+  return plugins;
 }
